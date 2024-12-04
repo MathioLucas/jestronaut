@@ -25,6 +25,35 @@ local tests = {
 		        )
 		    end
 		)
+            ocal obj1 = nil
+        local obj2 = nil
+        local obj3 = "not nil"
+
+        describe(
+            "testing :toBe(nil) functionality",
+            function()
+                test(
+                    "both nil values should pass",
+                    function()
+                        expect(obj1):toBe(nil)  -- Expectation: obj1 is nil
+                    end
+                )
+
+                test(
+                    "non-nil value should fail for nil",
+                    function()
+                        expect(obj3):toBe(nil)  -- Expectation: obj3 is not nil, so this should fail
+                    end
+                )
+
+                test(
+                    "nil should not equal non-nil",
+                    function()
+                        expect(obj1):toBe(obj3)  -- Expectation: obj1 is nil, obj3 is non-nil, this should fail
+                    end
+                )
+            end
+        )
 		
 	
 	end)(),
